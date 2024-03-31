@@ -71,19 +71,6 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    #filter-options {
-        display: inline-block;
-        width: 10rem;
-        height: 3rem;
-    }
-
-    .filter-btns__item {
-        display: none;
-    }
-
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -123,6 +110,7 @@ body {
     color: #aaa;
     float: right;
     font-size: 28px;
+    line-height: 20px;
     font-weight: bold;
 }
 
@@ -163,4 +151,26 @@ body {
 .slider__nav_next {
     top: calc(50% - 60px / 2);
     right: 0;
+}
+
+
+@media (max-width: 768px) {
+    #filter-options {
+        display: inline-block;
+        width: 10rem;
+        height: 3rem;
+    }
+
+    .filter-btns__item {
+        display: none;
+    }
+
+    .modal-img {
+        width: 95%;
+    }
+
+    .modal__content {
+        margin-top: 6rem;
+        padding: 1rem;
+    }
 }

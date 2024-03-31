@@ -64,30 +64,32 @@ for (let i = 0; i <= images.length; i++) {
             showModalImage(currentIndex + 1);
         }
 
-        function showModalImage(index) {
-            if (index >= imgSrc.length) {
-                index = 0;
-            } else if (index < 0) {
-                index = imgSrc.length - 1;
-            }
-            imgModal.src = imgSrc[index];
-            currentIndex = index;
-        }
-        function closeModal() {
-            modal.classList.remove('modal__active');
-            closer.removeEventListener('click', closeModal);
-            modal.removeEventListener('click', hideModal);
-        }
 
-        function hideModal(event) {
-            if (event.target === modal) {
-                closeModal();
-                // console.log(event.target); // target - то, по чему мы кликнули
-                console.log(event.currentTarget); // currentTarget - то, на чём висит обработчик Listener
-            } else {
-                // console.log(event.target);
-                console.log(event.currentTarget);
-            }
-        }
+    }
+}
+
+function showModalImage(index) {
+    if (index >= imgSrc.length) {
+        index = 0;
+    } else if (index < 0) {
+        index = imgSrc.length - 1;
+    }
+    imgModal.src = imgSrc[index];
+    currentIndex = index;
+}
+function closeModal() {
+    modal.classList.remove('modal__active');
+    closer.removeEventListener('click', closeModal);
+    modal.removeEventListener('click', hideModal);
+}
+
+function hideModal(event) {
+    if (event.target === modal) {
+        closeModal();
+        // console.log(event.target); // target - то, по чему мы кликнули
+        console.log(event.currentTarget); // currentTarget - то, на чём висит обработчик Listener
+    } else {
+        // console.log(event.target);
+        console.log(event.currentTarget);
     }
 }
