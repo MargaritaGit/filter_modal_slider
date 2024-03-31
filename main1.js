@@ -38,7 +38,14 @@ select.addEventListener('change', () => {
 const modal = document.getElementById('modal');
 const closer = document.querySelector('.modal__close');
 const imgModal = document.querySelector('.modal-img');
-const imgSources = ['./img/animal1.jpg', './img/nature1.jpg', './img/people1.jpg', './img/animal2.jpg', './img/people2.jpg', './img/nature2.jpg', './img/animal3.jpg', './img/nature4.jpg', './img/people4.jpg', './img/animal4.jpg', './img/nature3.jpg', './img/people3.jpg'];
+const imgSrc = ['./img/animal1.jpg', './img/nature1.jpg', './img/people1.jpg', './img/animal2.jpg', './img/people2.jpg', './img/nature2.jpg', './img/animal3.jpg', './img/nature4.jpg', './img/people4.jpg', './img/animal4.jpg', './img/nature3.jpg', './img/people3.jpg'];
+
+
+const btnPrev = document.querySelector('.slider__nav_prev');
+const btnNext = document.querySelector('.slider__nav_next');
+
+let currentIndex = 0;
+
 
 for (let i = 0; i <= images.length; i++) {
     images[i].onclick = () => {
@@ -50,8 +57,21 @@ for (let i = 0; i <= images.length; i++) {
 
         closer.addEventListener('click', closeModal);
 
+        btnPrev.onclick = () => {
+            showModalImage(currentIndex - 1);
+        }
+        btnNext.onclick = () => {
+            showModalImage(currentIndex + 1);
+        }
+
         function showModalImage(index) {
-            imgModal.src = imgSources[index];
+            if (index >= imgSrc.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = imgSrc.length - 1;
+            }
+            imgModal.src = imgSrc[index];
+            currentIndex = index;
         }
         function closeModal() {
             modal.classList.remove('modal__active');

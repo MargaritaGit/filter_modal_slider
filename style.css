@@ -109,10 +109,6 @@ body {
     margin: 5rem auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0.6;
 
-    /* Для анимации */
-    position: relative;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
 }
 
 .modal-img {
@@ -137,14 +133,34 @@ body {
     cursor: pointer;
 }
 
-@keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0;
-    }
+.modal_relative {
+    position: relative;
+}
 
-    to {
-        top: 0;
-        opacity: 1;
-    }
+.slider__nav {
+    cursor: pointer;
+    width: 45px;
+    height: 60px;
+    /* font-family: 'FontAwesome'; */
+    font-size: 35px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.223);
+    position: absolute;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+}
+
+.slider__nav:hover {
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+.slider__nav_prev {
+    top: calc(50% - 60px / 2);
+    left: 0;
+}
+
+.slider__nav_next {
+    top: calc(50% - 60px / 2);
+    right: 0;
 }
