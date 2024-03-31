@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter of cards</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="filter">
+        <div class="filter-btns">
+            <div data-filter="all" class="filter-btns__item active">Все</div>
+            <div data-filter="animal" class="filter-btns__item">Животные</div>
+            <div data-filter="people" class="filter-btns__item">Люди</div>
+            <div data-filter="nature" class="filter-btns__item">Природа</div>
+
+            <select id="filter-options">
+                <option value="all">Все</option>
+                <option value="animal">Животные</option>
+                <option value="people">Люди</option>
+                <option value="nature">Природа</option>
+            </select>
+        </div>
+
+        <div class="filter-content">
+            <img class="all animal scale-up-center" src="./img/animal1.jpg" alt="">
+            <img class="all nature scale-up-center" src="./img/nature1.jpg" alt="">
+            <img class="all people scale-up-center" src="./img/people1.jpg" alt="">
+            <img class="all animal scale-up-center" src="./img/animal2.jpg" alt="">
+            <img class="all people scale-up-center" src="./img/people2.jpg" alt="">
+            <img class="all nature scale-up-center" src="./img/nature2.jpg" alt="">
+            <img class="all animal scale-up-center" src="./img/animal3.jpg" alt="">
+            <img class="all nature scale-up-center" src="./img/nature4.jpg" alt="">
+            <img class="all people scale-up-center" src="./img/people4.jpg" alt="">
+            <img class="all animal scale-up-center" src="./img/animal4.jpg" alt="">
+            <img class="all nature scale-up-center" src="./img/nature3.jpg" alt="">
+            <img class="all people scale-up-center" src="./img/people3.jpg" alt="">
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal__content">
+                <span class="modal__close">&times;</span>
+                <img class="modal-img animal scale-up-center" src="./img/animal1.jpg" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <script src="./main.js"></script> -->
+    <script src="./main copy.js"></script>
+</body>
+
+</html>
