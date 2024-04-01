@@ -16,7 +16,7 @@ function filterImage(sel) {
         if (img.classList.contains(sel)) {
             setTimeout(() => {
                 img.style.display = 'block';
-            }, 0)
+            }, 0);
         }
     }
 
@@ -38,8 +38,16 @@ select.addEventListener('change', () => {
 const modal = document.getElementById('modal');
 const closer = document.querySelector('.modal__close');
 const imgModal = document.querySelector('.modal-img');
-const imgSrc = ['./img/animal1.jpg', './img/nature1.jpg', './img/people1.jpg', './img/animal2.jpg', './img/people2.jpg', './img/nature2.jpg', './img/animal3.jpg', './img/nature4.jpg', './img/people4.jpg', './img/animal4.jpg', './img/nature3.jpg', './img/people3.jpg'];
 
+// const imgSrc = ['./img/animal1.jpg', './img/nature1.jpg', './img/people1.jpg', './img/animal2.jpg', './img/people2.jpg', './img/nature2.jpg', './img/animal3.jpg', './img/nature4.jpg', './img/people4.jpg', './img/animal4.jpg', './img/nature3.jpg', './img/people3.jpg'];
+
+// const imgSrc = [];
+
+// for (let img of images) {
+//     imgSrc.push(img.src);
+// }
+
+// console.log(imgSrc);
 
 const btnPrev = document.querySelector('.slider__nav_prev');
 const btnNext = document.querySelector('.slider__nav_next');
@@ -47,34 +55,51 @@ const btnNext = document.querySelector('.slider__nav_next');
 let currentIndex = 0;
 
 
-for (let i = 0; i <= images.length; i++) {
+
+for (let i = 0; i < images.length; i++) {
+
+
     images[i].onclick = () => {
+
+        const imgCath = [];
+
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains(select.value)) {
+                imgCath.push(images[i]);
+            }
+        }
+
+
+        // const imgCath = Array.from(images).filter(img => img.classList.contains(select.value)); // OK, Array.from()
+        // const imgCath = [...images].filter(img => img.classList.contains(select.value));  // OK, spread operator ...
+
+        console.log(imgCath);
+
         modal.classList.add('modal__active');
 
-        showModalImage(i);
+        showModalImage(i, images);
 
         modal.addEventListener('click', hideModal);
 
         closer.addEventListener('click', closeModal);
 
         btnPrev.onclick = () => {
-            showModalImage(currentIndex - 1);
+            showModalImage(currentIndex - 1, imgCath);
         }
         btnNext.onclick = () => {
-            showModalImage(currentIndex + 1);
+            showModalImage(currentIndex + 1, imgCath);
         }
-
-
     }
 }
 
-function showModalImage(index) {
-    if (index >= imgSrc.length) {
+function showModalImage(index, images) {
+    if (index >= images.length) {
         index = 0;
     } else if (index < 0) {
-        index = imgSrc.length - 1;
+        index = images.length - 1;
     }
-    imgModal.src = imgSrc[index];
+
+    imgModal.src = images[index].src;
     currentIndex = index;
 }
 function closeModal() {
@@ -90,6 +115,6 @@ function hideModal(event) {
         console.log(event.currentTarget); // currentTarget - то, на чём висит обработчик Listener
     } else {
         // console.log(event.target);
-        console.log(event.currentTarget);
+        // console.log(event.currentTarget);
     }
 }

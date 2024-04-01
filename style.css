@@ -84,7 +84,9 @@ body {
 }
 
 .modal__active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal__content {
@@ -93,7 +95,7 @@ body {
     height: 80%;
     padding: 2rem;
     border: 1px solid #ccc;
-    margin: 5rem auto;
+    margin: 8rem auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0.6;
 
 }
@@ -170,7 +172,12 @@ body {
     }
 
     .modal__content {
-        margin-top: 6rem;
         padding: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-img {
+        height: 95%;
     }
 }
